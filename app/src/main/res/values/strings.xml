@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Fake Pinterest</string>
+    <string name="login">user_test_challenger</string>
+    <string name="pass">Gm4.N3wX4,b_</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
