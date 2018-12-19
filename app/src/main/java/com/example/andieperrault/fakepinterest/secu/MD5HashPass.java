@@ -32,7 +32,7 @@ public class MD5HashPass {
             for (int i=0; i<messageDigest.length; i++)
                 hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
 
-        //HEXAString a la tendence à cropper le 1er 0 du hash, il faut donc le rajouter à la main.
+        //HEXAString a la tendence à cropper le 1er élément [0] du hash, il faut donc le rajouter à la main.
             return "0"+hexString.toString();
         }catch (NoSuchAlgorithmException e) {
             e.printStackTrace();

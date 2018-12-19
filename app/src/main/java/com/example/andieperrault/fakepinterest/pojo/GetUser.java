@@ -22,20 +22,33 @@ public class GetUser {
     @SerializedName("result")
     @Expose
     private GetUserByIdRes result;
-    @SerializedName("id")
+    @SerializedName("userId")
     @Expose
-    private int id;
+    private int userId;
     @SerializedName("wsToken")
     @Expose
     private String wsToken;
 
-    public GetUser(int id, String wsToken){
-        this.id = id;
+    public GetUser(int userId, String wsToken){
+        this.userId = userId;
         this.wsToken = wsToken;
     }
 
+    public int getUserId() {
+        return userId;
+    }
 
+    public void setUserId(int id) {
+        this.userId = userId;
+    }
 
+    public String getWsToken() {
+        return wsToken;
+    }
+
+    public void setWsToken(String wsToken) {
+        this.wsToken = wsToken;
+    }
 
     public Object getError() {
         return error;

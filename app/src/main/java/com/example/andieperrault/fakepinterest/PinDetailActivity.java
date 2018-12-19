@@ -22,7 +22,9 @@ public class PinDetailActivity extends AppCompatActivity {
     private String date;
     private String userId;
 
-    boolean isImageFitToScreen;
+    ImageView imageView;
+    ImageView imageView2;
+    boolean isFullScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +36,18 @@ public class PinDetailActivity extends AppCompatActivity {
         TextView dateTextView = findViewById(R.id.dateTextView);
         TextView descTextView = findViewById(R.id.descTextView);
         TextView userTextView = findViewById(R.id.userId);
-        final ImageView imageView = findViewById(R.id.imageDetails);
 
+        imageView = findViewById(R.id.imageDetails);
+        imageView2 = findViewById(R.id.imageView2);
+        isFullScreen = true;
 
         Intent intent = getIntent();
         Glide.with(context).load(intent.getStringExtra("url")).apply(RequestOptions.centerCropTransform()).into(imageView);
+        Glide.with(context).load(intent.getStringExtra("url")).apply(RequestOptions.centerCropTransform()).into(imageView2);
         titleTextView.setText(intent.getStringExtra("title"));
         dateTextView.setText(intent.getStringExtra("date"));
         descTextView.setText(intent.getStringExtra("desc"));
-        userTextView.setText(intent.getStringExtra("userId"));
+        userTextView.setText("+ infos User ");
 
         userId = intent.getStringExtra("userId");
         userTextView.setOnClickListener(new View.OnClickListener() {
@@ -55,19 +60,29 @@ public class PinDetailActivity extends AppCompatActivity {
         });
 
         imageView.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                if(isImageFitToScreen) {
-                    isImageFitToScreen=false;
-                    imageView.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-                    imageView.setAdjustViewBounds(true);
-                }else{
-                    isImageFitToScreen=true;
-                    imageView.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
-                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                if (!isFullScreen) {
+                    imageView2.setVisibility(View.VISIBLE);
+                    isFullScreen=true;
+
                 }
             }
         });
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFullScreen){
+                    imageView2.setVisibility(View.INVISIBLE);
+                    isFullScreen=false;
+
+                }
+            }
+        });
+
+
+
 
     }
 

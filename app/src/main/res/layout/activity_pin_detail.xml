@@ -13,7 +13,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="59dp"
-        android:adjustViewBounds="true"
         app:srcCompat="@color/colorAccent" />
 
     <TextView
@@ -34,13 +33,22 @@
         android:layout_marginTop="25dp"
         android:text="dateTextView" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@color/colorPrimary"/>
+
     <ScrollView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/userId"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="50dp">
+        android:layout_marginLeft="50dp"
+        android:id="@+id/scrollView2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,6 +62,8 @@
                 android:layout_alignStart="@+id/imageDetails"
                 android:layout_below="@+id/userId"
                 android:text="descTextView" />
+
+
         </LinearLayout>
     </ScrollView>
 
@@ -65,6 +75,8 @@
         android:layout_alignStart="@+id/imageDetails"
         android:layout_below="@+id/dateTextView"
         android:layout_marginTop="14dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
         android:text="userId" />
 
 </RelativeLayout>
